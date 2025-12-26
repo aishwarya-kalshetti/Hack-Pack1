@@ -2,6 +2,7 @@
 
 import React from 'react';
 import { DashboardStats } from '@/types';
+import { useLanguage } from '@/contexts/LanguageContext';
 import {
     TrendingUp,
     Clock,
@@ -46,13 +47,14 @@ function AnimatedCounter({ value, suffix = '' }: AnimatedCounterProps) {
 }
 
 export default function StatsCards({ stats }: StatsCardsProps) {
+    const { t } = useLanguage();
     const resolutionRate = stats.totalTickets > 0
         ? Math.round((stats.resolvedTickets / stats.totalTickets) * 100)
         : 0;
 
     const cards = [
         {
-            title: 'Total Tickets',
+            title: t('stats.total'),
             value: stats.totalTickets,
             icon: FileText,
             gradient: 'from-blue-500 to-indigo-600',
@@ -60,7 +62,7 @@ export default function StatsCards({ stats }: StatsCardsProps) {
             textColor: 'text-indigo-600'
         },
         {
-            title: 'Resolved',
+            title: t('stats.resolved'),
             value: stats.resolvedTickets,
             icon: CheckCircle,
             gradient: 'from-green-500 to-emerald-600',
@@ -69,7 +71,7 @@ export default function StatsCards({ stats }: StatsCardsProps) {
             extra: `${resolutionRate}% rate`
         },
         {
-            title: 'Pending',
+            title: t('stats.pending'),
             value: stats.pendingTickets,
             icon: Clock,
             gradient: 'from-yellow-500 to-orange-500',
@@ -77,7 +79,7 @@ export default function StatsCards({ stats }: StatsCardsProps) {
             textColor: 'text-orange-600'
         },
         {
-            title: 'Avg Resolution',
+            title: t('stats.avgTime'),
             value: stats.avgResolutionTime,
             suffix: 'h',
             icon: Zap,

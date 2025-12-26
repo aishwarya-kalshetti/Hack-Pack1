@@ -2,6 +2,7 @@
 
 import React, { useEffect, useState } from 'react';
 import { useAuth } from '@/contexts/AuthContext';
+import { useLanguage } from '@/contexts/LanguageContext';
 import { useRouter } from 'next/navigation';
 import { Navbar, StatsCards, TicketCard } from '@/components';
 import { getDashboardStats, getUserTickets } from '@/lib/firestore';
@@ -11,6 +12,7 @@ import Link from 'next/link';
 
 export default function StudentDashboard() {
     const { user, loading: authLoading, isAdmin } = useAuth();
+    const { t } = useLanguage();
     const router = useRouter();
     const [loading, setLoading] = useState(true);
     const [stats, setStats] = useState<DashboardStats | null>(null);
@@ -82,10 +84,10 @@ export default function StudentDashboard() {
                 {/* Welcome Header */}
                 <div className="mb-8">
                     <h1 className="text-2xl font-bold text-gray-900">
-                        Welcome back, {user.displayName}! 👋
+                        {t('dashboard.welcome')}, {user.displayName}! 👋
                     </h1>
                     <p className="text-gray-600 mt-1">
-                        Here's an overview of your grievance submissions
+                        {t('dashboard.overview')}
                     </p>
                 </div>
 
@@ -99,8 +101,8 @@ export default function StudentDashboard() {
                             <Plus className="w-6 h-6" />
                         </div>
                         <div>
-                            <h3 className="text-lg font-semibold">New Grievance</h3>
-                            <p className="text-white/80 text-sm">Submit a new complaint</p>
+                            <h3 className="text-lg font-semibold">{t('dashboard.newGrievance')}</h3>
+                            <p className="text-white/80 text-sm">{t('dashboard.submitComplaint')}</p>
                         </div>
                     </Link>
 
@@ -112,8 +114,8 @@ export default function StudentDashboard() {
                             <FileText className="w-6 h-6 text-indigo-600" />
                         </div>
                         <div>
-                            <h3 className="text-lg font-semibold text-gray-900">My Tickets</h3>
-                            <p className="text-gray-600 text-sm">View all your submissions</p>
+                            <h3 className="text-lg font-semibold text-gray-900">{t('dashboard.myTickets')}</h3>
+                            <p className="text-gray-600 text-sm">{t('dashboard.viewSubmissions')}</p>
                         </div>
                     </Link>
                 </div>
@@ -124,9 +126,9 @@ export default function StudentDashboard() {
                 {/* Recent Tickets */}
                 <div className="mt-8">
                     <div className="flex items-center justify-between mb-4">
-                        <h2 className="text-lg font-semibold text-gray-900">Recent Tickets</h2>
+                        <h2 className="text-lg font-semibold text-gray-900">{t('dashboard.recentTickets')}</h2>
                         <Link href="/student/tickets" className="text-sm text-indigo-600 hover:text-indigo-700">
-                            View all →
+                            {t('dashboard.viewAll')} →
                         </Link>
                     </div>
 
@@ -145,14 +147,14 @@ export default function StudentDashboard() {
                             <div className="inline-flex items-center justify-center w-16 h-16 bg-gray-100 rounded-full mb-4">
                                 <FileText className="w-8 h-8 text-gray-400" />
                             </div>
-                            <h3 className="text-lg font-medium text-gray-900 mb-2">No tickets yet</h3>
-                            <p className="text-gray-600 mb-4">Submit your first grievance to get started</p>
+                            <h3 className="text-lg font-medium text-gray-900 mb-2">{t('dashboard.noTickets')}</h3>
+                            <p className="text-gray-600 mb-4">{t('dashboard.submitFirst')}</p>
                             <Link
                                 href="/student/new"
                                 className="inline-flex items-center gap-2 px-6 py-3 bg-indigo-600 text-white rounded-xl hover:bg-indigo-700 transition-all"
                             >
                                 <Plus className="w-5 h-5" />
-                                New Grievance
+                                {t('dashboard.newGrievance')}
                             </Link>
                         </div>
                     )}
@@ -165,10 +167,9 @@ export default function StudentDashboard() {
                             <Sparkles className="w-6 h-6 text-purple-600" />
                         </div>
                         <div>
-                            <h3 className="font-semibold text-gray-900 mb-1">AI-Powered Processing</h3>
+                            <h3 className="font-semibold text-gray-900 mb-1">{t('dashboard.aiPowered')}</h3>
                             <p className="text-gray-600 text-sm">
-                                Your grievances are automatically analyzed by Google Gemini AI to determine the category,
-                                urgency, and the right department. This ensures faster routing and resolution!
+                                {t('dashboard.aiDescription')}
                             </p>
                         </div>
                     </div>

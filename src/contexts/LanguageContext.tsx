@@ -66,6 +66,20 @@ const translations: Record<Language, Record<string, string>> = {
         'chatbot.online': 'Online',
         'chatbot.askAnything': 'Ask me anything...',
         'chatbot.greeting': 'Hi! I\'m your CampusAI assistant. How can I help you today?',
+
+        // Dashboard
+        'dashboard.welcome': 'Welcome back',
+        'dashboard.overview': 'Here\'s an overview of your grievance submissions',
+        'dashboard.newGrievance': 'New Grievance',
+        'dashboard.submitComplaint': 'Submit a new complaint',
+        'dashboard.myTickets': 'My Tickets',
+        'dashboard.viewSubmissions': 'View all your submissions',
+        'dashboard.recentTickets': 'Recent Tickets',
+        'dashboard.viewAll': 'View all',
+        'dashboard.noTickets': 'No tickets yet',
+        'dashboard.submitFirst': 'Submit your first grievance to get started',
+        'dashboard.aiPowered': 'AI-Powered Processing',
+        'dashboard.aiDescription': 'Your grievances are automatically analyzed by Google Gemini AI to determine the category, urgency, and the right department. This ensures faster routing and resolution!',
     },
     hi: {
         // Navigation
@@ -113,6 +127,20 @@ const translations: Record<Language, Record<string, string>> = {
         'chatbot.online': 'ऑनलाइन',
         'chatbot.askAnything': 'कुछ भी पूछें...',
         'chatbot.greeting': 'नमस्ते! मैं आपका CampusAI सहायक हूं। मैं आज आपकी कैसे मदद कर सकता हूं?',
+
+        // Dashboard
+        'dashboard.welcome': 'वापसी पर स्वागत है',
+        'dashboard.overview': 'यहां आपकी शिकायतों का अवलोकन है',
+        'dashboard.newGrievance': 'नई शिकायत',
+        'dashboard.submitComplaint': 'नई शिकायत दर्ज करें',
+        'dashboard.myTickets': 'मेरी टिकट',
+        'dashboard.viewSubmissions': 'अपनी सभी शिकायतें देखें',
+        'dashboard.recentTickets': 'हाल की टिकट',
+        'dashboard.viewAll': 'सभी देखें',
+        'dashboard.noTickets': 'अभी कोई टिकट नहीं',
+        'dashboard.submitFirst': 'शुरू करने के लिए अपनी पहली शिकायत दर्ज करें',
+        'dashboard.aiPowered': 'AI-संचालित प्रोसेसिंग',
+        'dashboard.aiDescription': 'आपकी शिकायतों को Google Gemini AI द्वारा स्वचालित रूप से विश्लेषित किया जाता है। यह तेज़ रूटिंग और समाधान सुनिश्चित करता है!',
     },
     ta: {
         // Navigation
@@ -160,6 +188,20 @@ const translations: Record<Language, Record<string, string>> = {
         'chatbot.online': 'ஆன்லைன்',
         'chatbot.askAnything': 'எதையும் கேளுங்கள்...',
         'chatbot.greeting': 'வணக்கம்! நான் உங்கள் CampusAI உதவியாளர். இன்று நான் உங்களுக்கு எப்படி உதவ முடியும்?',
+
+        // Dashboard
+        'dashboard.welcome': 'மீண்டும் வரவேற்கிறோம்',
+        'dashboard.overview': 'உங்கள் புகார்களின் மேலோட்டம் இங்கே',
+        'dashboard.newGrievance': 'புதிய புகார்',
+        'dashboard.submitComplaint': 'புதிய புகார் சமர்ப்பிக்கவும்',
+        'dashboard.myTickets': 'என் டிக்கெட்டுகள்',
+        'dashboard.viewSubmissions': 'உங்கள் அனைத்து சமர்ப்பிப்புகளையும் பாருங்கள்',
+        'dashboard.recentTickets': 'சமீபத்திய டிக்கெட்டுகள்',
+        'dashboard.viewAll': 'அனைத்தையும் பார்க்க',
+        'dashboard.noTickets': 'இன்னும் டிக்கெட்டுகள் இல்லை',
+        'dashboard.submitFirst': 'தொடங்க உங்கள் முதல் புகாரை சமர்ப்பிக்கவும்',
+        'dashboard.aiPowered': 'AI-இயக்கப்படும் செயலாக்கம்',
+        'dashboard.aiDescription': 'உங்கள் புகார்கள் Google Gemini AI ஆல் தானாகவே பகுப்பாய்வு செய்யப்படுகின்றன. இது விரைவான திசைதிருப்பலையும் தீர்வையும் உறுதி செய்கிறது!',
     },
     te: {
         // Navigation
@@ -207,6 +249,20 @@ const translations: Record<Language, Record<string, string>> = {
         'chatbot.online': 'ఆన్‌లైన్',
         'chatbot.askAnything': 'ఏదైనా అడగండి...',
         'chatbot.greeting': 'నమస్కారం! నేను మీ CampusAI సహాయకుడిని. ఈ రోజు నేను మీకు ఎలా సహాయం చేయగలను?',
+
+        // Dashboard
+        'dashboard.welcome': 'తిరిగి స్వాగతం',
+        'dashboard.overview': 'మీ ఫిర్యాదుల అవలోకనం ఇక్కడ ఉంది',
+        'dashboard.newGrievance': 'కొత్త ఫిర్యాదు',
+        'dashboard.submitComplaint': 'కొత్త ఫిర్యాదు సమర్పించండి',
+        'dashboard.myTickets': 'నా టికెట్లు',
+        'dashboard.viewSubmissions': 'మీ అన్ని సమర్పణలను చూడండి',
+        'dashboard.recentTickets': 'ఇటీవలి టికెట్లు',
+        'dashboard.viewAll': 'అన్నీ చూడండి',
+        'dashboard.noTickets': 'ఇంకా టికెట్లు లేవు',
+        'dashboard.submitFirst': 'ప్రారంభించడానికి మీ మొదటి ఫిర్యాదును సమర్పించండి',
+        'dashboard.aiPowered': 'AI-ఆధారిత ప్రాసెసింగ్',
+        'dashboard.aiDescription': 'మీ ఫిర్యాదులు Google Gemini AI ద్వారా స్వయంచాలకంగా విశ్లేషించబడతాయి. ఇది వేగవంతమైన రూటింగ్ మరియు పరిష్కారాన్ని నిర్ధారిస్తుంది!',
     },
 };
 

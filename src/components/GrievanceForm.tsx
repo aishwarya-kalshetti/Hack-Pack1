@@ -2,6 +2,7 @@
 
 import React, { useState, useRef, useEffect } from 'react';
 import { useAuth } from '@/contexts/AuthContext';
+import { useLanguage } from '@/contexts/LanguageContext';
 import { submitGrievance } from '@/lib/firestore';
 import { appConfig } from '@/lib/config';
 import VoiceInput from './VoiceInput';
@@ -45,6 +46,7 @@ const suggestedPrompts = [
 
 export default function GrievanceForm({ onSuccess }: GrievanceFormProps) {
     const { user } = useAuth();
+    const { t } = useLanguage();
     const [messages, setMessages] = useState<Message[]>([
         {
             id: '1',
@@ -180,10 +182,10 @@ export default function GrievanceForm({ onSuccess }: GrievanceFormProps) {
                         <Bot className="w-7 h-7" />
                     </div>
                     <div>
-                        <h2 className="text-xl font-bold">AI Grievance Assistant</h2>
+                        <h2 className="text-xl font-bold">{t('form.title')}</h2>
                         <p className="text-white/80 text-sm flex items-center gap-1">
                             <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
-                            Powered by Gemini AI
+                            {t('form.subtitle')}
                         </p>
                     </div>
                 </div>
@@ -247,7 +249,7 @@ export default function GrievanceForm({ onSuccess }: GrievanceFormProps) {
                     onClick={() => setShowOptions(!showOptions)}
                     className="text-sm text-gray-500 hover:text-gray-700"
                 >
-                    {showOptions ? '▼ Hide options' : '▶ Show options (photo, location, anonymous)'}
+                    {showOptions ? t('form.hideOptions') : t('form.showOptions')}
                 </button>
 
                 {showOptions && (
@@ -256,7 +258,7 @@ export default function GrievanceForm({ onSuccess }: GrievanceFormProps) {
                         <div>
                             <div className="flex items-center gap-2 mb-2">
                                 <Camera className="w-4 h-4 text-gray-400" />
-                                <span className="text-sm text-gray-500">Attach a photo (optional)</span>
+                                <span className="text-sm text-gray-500">{t('form.uploadPhoto')}</span>
                             </div>
                             <ImageUpload
                                 onImageAnalyzed={(analysis) => {
@@ -291,7 +293,7 @@ export default function GrievanceForm({ onSuccess }: GrievanceFormProps) {
                                 <div className={`w-5 h-5 rounded-full bg-white shadow-md transform transition-transform ${isAnonymous ? 'translate-x-4' : 'translate-x-0.5'} translate-y-0.5`} />
                             </div>
                             <EyeOff className={`w-5 h-5 ${isAnonymous ? 'text-indigo-600' : 'text-gray-400'}`} />
-                            <span className={`text-sm ${isAnonymous ? 'text-indigo-600' : 'text-gray-500'}`}>Submit anonymously</span>
+                            <span className={`text-sm ${isAnonymous ? 'text-indigo-600' : 'text-gray-500'}`}>{t('form.anonymous')}</span>
                         </label>
                     </div>
                 )}
@@ -330,7 +332,7 @@ export default function GrievanceForm({ onSuccess }: GrievanceFormProps) {
                             value={input}
                             onChange={(e) => setInput(e.target.value)}
                             onKeyPress={handleKeyPress}
-                            placeholder="Type or speak your issue..."
+                            placeholder={t('form.placeholder')}
                             disabled={isProcessing}
                             className="flex-1 px-4 py-3 bg-gray-100 rounded-xl border-0 focus:ring-2 focus:ring-indigo-500 transition-all disabled:opacity-50"
                         />
@@ -344,7 +346,7 @@ export default function GrievanceForm({ onSuccess }: GrievanceFormProps) {
                             ) : (
                                 <>
                                     <Zap className="w-5 h-5" />
-                                    Send
+                                    {t('form.send')}
                                 </>
                             )}
                         </button>

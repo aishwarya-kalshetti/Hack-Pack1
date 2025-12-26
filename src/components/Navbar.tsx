@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useAuth } from '@/contexts/AuthContext';
 import { useTheme } from '@/contexts/ThemeContext';
+import { useLanguage } from '@/contexts/LanguageContext';
 import LanguageSelector from './LanguageSelector';
 import {
     GraduationCap,
@@ -29,18 +30,19 @@ interface NavbarProps {
 export default function Navbar({ onMenuToggle, isMenuOpen }: NavbarProps) {
     const { user, logout, isAdmin } = useAuth();
     const { theme, toggleTheme, isDark } = useTheme();
+    const { t } = useLanguage();
     const pathname = usePathname();
 
     const navigation = isAdmin
         ? [
-            { name: 'Dashboard', href: '/admin', icon: Home },
-            { name: 'All Tickets', href: '/admin/tickets', icon: FileText },
-            { name: 'Analytics', href: '/admin/analytics', icon: BarChart3 },
+            { name: t('nav.dashboard'), href: '/admin', icon: Home },
+            { name: t('nav.allTickets'), href: '/admin/tickets', icon: FileText },
+            { name: t('nav.analytics'), href: '/admin/analytics', icon: BarChart3 },
         ]
         : [
-            { name: 'Dashboard', href: '/student', icon: Home },
-            { name: 'New Grievance', href: '/student/new', icon: Plus },
-            { name: 'My Tickets', href: '/student/tickets', icon: FileText },
+            { name: t('nav.dashboard'), href: '/student', icon: Home },
+            { name: t('nav.newGrievance'), href: '/student/new', icon: Plus },
+            { name: t('nav.myTickets'), href: '/student/tickets', icon: FileText },
         ];
 
     return (
@@ -174,7 +176,7 @@ export default function Navbar({ onMenuToggle, isMenuOpen }: NavbarProps) {
                                 className="flex items-center gap-3 px-4 py-3 text-red-500 hover:bg-red-50 dark:hover:bg-red-900/20 rounded-xl w-full"
                             >
                                 <LogOut className="w-5 h-5" />
-                                Logout
+                                {t('nav.logout')}
                             </button>
                         )}
                     </div>
